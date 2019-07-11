@@ -1,33 +1,42 @@
 <template>
   <div class="forms">
-    <h2>Event Type</h2>
-    <el-row>
-      <el-radio
-        v-for="event in eventType"
-        :key="event.type"
-        :label="event.type"
-        v-model="type">
-          <img :src="event.icon" height="24">
-          {{ event.text }}
-      </el-radio>
-    </el-row>
-    <h2>Country</h2>
-    <el-input v-model="ruleForm.country" placeholder="Country to be held"></el-input>
-    <h2>City</h2>
-    <el-input v-model="ruleForm.city" placeholder="City to be held"></el-input>
-    <h2>Name</h2>
-    <el-input v-model="ruleForm.name" placeholder="Event name"></el-input>
-    <h2>Url</h2>
-    <el-input v-model="ruleForm.url" placeholder="Url of event site"></el-input>
-    <h2>When</h2>
-    <el-date-picker v-model="ruleForm.start" placeholder="Event start date"></el-date-picker>
-    to
-    <el-date-picker v-model="end" placeholder="Event end date or Null"></el-date-picker>
-    <h2>
-      Formatted Text
-      <el-button type="primary" icon="el-icon-paperclip" size="small" data-clipboard-target="#result" id="clipbutton"></el-button>
-    </h2>
-    <el-input type="textarea" v-model="eventText" rows="10" id="result"></el-input>
+    <el-form>
+      <el-form-item label="Event Type">
+        <el-row>
+          <el-radio
+            v-for="event in eventType"
+            :key="event.type"
+            :label="event.type"
+            v-model="type">
+              <img :src="event.icon" height="24">
+              {{ event.text }}
+          </el-radio>
+        </el-row>
+      </el-form-item>
+    </el-form>
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
+      <el-form-item label="Country" prop="country">
+        <el-input v-model="ruleForm.country" placeholder="Country to be held"></el-input>
+      </el-form-item>
+      <el-form-item label="City" prop="city">
+        <el-input v-model="ruleForm.city" placeholder="City to be held"></el-input>
+      </el-form-item>
+      <el-form-item label="Event name" prop="name">
+        <el-input v-model="ruleForm.name" placeholder="Event name"></el-input>
+      </el-form-item>
+      <el-form-item label="Url" prop="url">
+        <el-input v-model="ruleForm.url" placeholder="Url of event site"></el-input>
+      </el-form-item>
+      <el-form-item label="When" prop="start">
+        <el-date-picker v-model="ruleForm.start" placeholder="Event start date"></el-date-picker>
+        to
+        <el-date-picker v-model="end" placeholder="Event end date or Null"></el-date-picker>
+      </el-form-item>
+      <el-form-item label="Formatted text">
+        <el-button type="primary" icon="el-icon-paperclip" size="small" data-clipboard-target="#result" id="clipbutton"></el-button>
+        <el-input type="textarea" v-model="eventText" rows="10" id="result" readonly=""></el-input>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -55,7 +64,35 @@ export default {
         country: [
           {
             required: true,
-            message: 'Please input Country',
+            message: 'Please input country',
+            trigger: 'blur'
+          }
+        ],
+        city: [
+          {
+            required: true,
+            message: 'Please input city',
+            trigger: 'blur'
+          }
+        ],
+        name: [
+          {
+            required: true,
+            message: 'Please input event name',
+            trigger: 'blur'
+          }
+        ],
+        url: [
+          {
+            required: true,
+            message: 'Please input event site url',
+            trigger: 'blur'
+          }
+        ],
+        start: [
+          {
+            required: true,
+            message: 'Pick a start date',
             trigger: 'change'
           }
         ]
@@ -92,5 +129,6 @@ a {
 }
 .el-radio {
   display: block;
+  clear: both;
 }
 </style>
