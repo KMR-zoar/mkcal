@@ -1,0 +1,62 @@
+[
+  {
+    "type": "none",
+    "text": "headings only, not an event.",
+    "icon": ""
+  },
+  {
+    "type": "mapevent",
+    "text": "mapping parties, or other surveys.",
+    "icon": "https://wiki.openstreetmap.org/w/images/thumb/1/1b/OSM_2011_Black.svg/24px-OSM_2011_Black.svg.png"
+  },
+  {
+    "type": "social",
+    "text": "informal meetings, or just to have a beer with fellow OSM addicts.",
+    "icon": "https://wiki.openstreetmap.org/w/images/7/77/Pub.png"
+  },
+  {
+    "type": "meeting",
+    "text": "meetings in meetspace.",
+    "icon": "https://wiki.openstreetmap.org/w/images/thumb/a/a8/Meeting-icon.svg/27px-Meeting-icon.svg.png"
+  },
+  {
+    "type": "speaking",
+    "text": "small local talk and presentation events.",
+    "icon": "https://wiki.openstreetmap.org/w/images/thumb/8/88/Talk_event_icon.svg/30px-Talk_event_icon.svg.png"
+  },
+  {
+    "type": "conference",
+    "text": "talks, panels and conferences with multiple presentations.",
+    "icon": "https://wiki.openstreetmap.org/w/images/thumb/c/c6/Conference-icon.svg/27px-Conference-icon.svg.png"
+  },
+  {
+    "type": "pizza",
+    "text": "hack-a-thons/mapathons involving pizza (or eating other meals, e.g. pasta-parties, or brunches).",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Pizza.svg/30px-Pizza.svg.png"
+  },
+  {
+    "type": "irc",
+    "text": "IRC meetings at the OSM official IRC channel.",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Internet-group-chat.svg/24px-Internet-group-chat.svg.png"
+  },
+  {
+    "type": "tv",
+    "text": "TV/press appearances. Turn on your TV that day!",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Crystal128-tv.svg/24px-Crystal128-tv.svg.png"
+  },
+  {
+    "type": "podcast",
+    "text": "radio/podcast recordings.",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ic_mic_48px.svg/24px-Ic_mic_48px.svg.png"
+  },
+  {
+    "type": "info",
+    "text": "general (but important) information.",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Info_Simple.svg/24px-Info_Simple.svg.png"
+  },
+  {
+    "type": "misc",
+    "text": "anything else.",
+    "icon": ""
+  }
+]
