@@ -2,6 +2,10 @@
 
 > Create a formatted text for Template:Calendar at OSM Wiki.
 
+OpenStreetMap Wiki の Template:Calendar にイベントを追加するためのなにかです。
+
+https://kmr-zoar.github.io/mkcal/index.html にアクセスすると動きます。
+
 ## Build Setup
 
 ``` bash
