@@ -8,7 +8,7 @@
             :key="event.type"
             :label="event.type"
             v-model="type">
-              <img :src="event.icon" height="24">
+              <img :src="event.icon ? event.icon : noneIcon" height="24">
               {{ event.text }}
           </el-radio>
         </el-row>
@@ -34,7 +34,7 @@
       </el-form-item>
       <el-form-item label="Formatted text">
         <el-button type="primary" icon="el-icon-paperclip" size="small" data-clipboard-target="#result" id="clipbutton"></el-button>
-        <el-input type="textarea" v-model="formattedText" rows="8" id="result" readonly=""></el-input>
+        <el-input type="textarea" v-model="formattedText" rows="11" id="result" readonly=""></el-input>
       </el-form-item>
     </el-form>
   </div>
@@ -43,6 +43,7 @@
 <script>
 import eventType from './eventtype.json'
 import Clipboard from 'clipboard'
+import noneIcon from './none.svg'
 
 export default {
   name: 'formatter',
@@ -52,6 +53,7 @@ export default {
       eventType: eventType,
       clipboard: null,
       end: '',
+      noneIcon: noneIcon,
       ruleForm: {
         country: '',
         city: '',
@@ -115,8 +117,7 @@ export default {
         '| city = ' + this.ruleForm.city,
         '| country = ' + this.ruleForm.country,
         '}}'
-        )
-
+      )
 
       return eventText.join('\n')
     }
