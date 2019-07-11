@@ -28,13 +28,13 @@
         <el-input v-model="ruleForm.url" placeholder="Url of event site"></el-input>
       </el-form-item>
       <el-form-item label="When" prop="start">
-        <el-date-picker v-model="ruleForm.start" placeholder="Event start date"></el-date-picker>
+        <el-date-picker v-model="ruleForm.start" placeholder="Event start date" value-format="yyyy-MM-dd"></el-date-picker>
         to
-        <el-date-picker v-model="end" placeholder="Event end date or Null"></el-date-picker>
+        <el-date-picker v-model="end" placeholder="Event end date or Null" value-format="yyyy-MM-dd"></el-date-picker>
       </el-form-item>
       <el-form-item label="Formatted text">
         <el-button type="primary" icon="el-icon-paperclip" size="small" data-clipboard-target="#result" id="clipbutton"></el-button>
-        <el-input type="textarea" v-model="eventText" rows="10" id="result" readonly=""></el-input>
+        <el-input type="textarea" v-model="formattedText" rows="8" id="result" readonly=""></el-input>
       </el-form-item>
     </el-form>
   </div>
@@ -50,7 +50,6 @@ export default {
     return {
       type: 'none',
       eventType: eventType,
-      eventText: '',
       clipboard: null,
       end: '',
       ruleForm: {
@@ -99,8 +98,28 @@ export default {
       }
     }
   },
-  mounted: () => {
+  created () {
     this.clipboard = new Clipboard('#clipbutton')
+  },
+  computed: {
+    formattedText: function () {
+      const eventText = ['{{Calendar/event']
+
+      eventText.push('| type = ' + this.type)
+
+      this.end ? eventText.push('| start = ' + this.ruleForm.start, '| end = ' + this.end) : eventText.push('| date = ' + this.ruleForm.start)
+
+      eventText.push(
+        '| name = ' + this.ruleForm.name,
+        '| url = ' + this.ruleForm.url,
+        '| city = ' + this.ruleForm.city,
+        '| country = ' + this.ruleForm.country,
+        '}}'
+        )
+
+
+      return eventText.join('\n')
+    }
   }
 }
 </script>
